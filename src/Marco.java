@@ -42,17 +42,11 @@ public class Marco extends JFrame{
         Ball ball = new Ball();
         lamina.add(ball);
 
-        for(int i=0; i<3000; i++){
-            ball.moveBall(lamina.getBounds());
-            lamina.paint(lamina.getGraphics());
-            try{
-                Thread.sleep(4); 
-            }catch(InterruptedException e){
-                e.printStackTrace();
-            }
-             
+        Runnable run = new Hilos(ball, lamina);
 
-        }
+        Thread hilo = new Thread(run);
+        hilo.start();
+
     }
     
 }
