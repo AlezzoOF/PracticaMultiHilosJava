@@ -7,6 +7,8 @@ import javax.swing.JPanel;
 public class Marco extends JFrame{
 
     private Lamina lamina;
+    
+    
 
     public Marco(){
         setBounds(600, 300, 400, 350);
@@ -19,6 +21,12 @@ public class Marco extends JFrame{
         crearBotones(botones, "GO!", new ActionListener(){
             public void actionPerformed(ActionEvent evento){
                 startGame();
+            }
+        });
+
+        crearBotones(botones, "GO2!", new ActionListener(){
+            public void actionPerformed(ActionEvent evento){
+                startGame2();
             }
         });
 
@@ -45,8 +53,23 @@ public class Marco extends JFrame{
         Runnable run = new Hilos(ball, lamina);
 
         Thread hilo = new Thread(run);
+        hilo.setPriority(8);
         hilo.start();
+        
+    }
 
+
+    public void startGame2(){
+        
+        Ball ball = new Ball();
+        lamina.addRect(ball);
+
+        Runnable run = new Hilos(ball, lamina);
+
+        Thread ps = new Thread(run);
+        ps.setPriority(5);
+        ps.start();
+        
     }
     
 }

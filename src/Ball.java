@@ -43,5 +43,8 @@ public class Ball {
         return new Ellipse2D.Double(x,y,LONX,LONY);
     }
 
+    public Rectangle2D crearRectangle(){
+        return new Rectangle2D.Double(x,y,LONX,LONY);
+    }
 
 }
