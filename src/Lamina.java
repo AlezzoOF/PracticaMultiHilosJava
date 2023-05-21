@@ -5,6 +5,9 @@ import javax.swing.JPanel;
 public class Lamina extends JPanel{
     private ArrayList<Ball> balls = new ArrayList<>();
     private ArrayList<Ball> rect = new ArrayList<>();
+ 
+
+    
 
     public void add(Ball ball){
         balls.add(ball);
